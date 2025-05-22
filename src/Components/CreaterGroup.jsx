@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../Auth/AuthContext";
+import Swal from "sweetalert2";
 
 const CreateGroup = () => {
   const { user } = use(AuthContext);
@@ -7,25 +8,36 @@ const CreateGroup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const groupData = {
-      groupName: form.groupName.value,
-      category: form.category.value,
-      description: form.description.value,
-      location: form.location.value,
-      maxMembers: form.maxMembers.value,
-      startDate: form.startDate.value,
-      image: form.image.value,
-      userName: user.displayName,
-      userEmail: user.email,
-    };
+    const formData = new FormData(form);
+    const createGroupeData = Object.fromEntries(formData.entries());
+    console.log(createGroupeData);
 
-    console.log(groupData);
-    // send to backend / Firebase
+    fetch(`http://localhost:999/create`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createGroupeData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          console.log("after adding adding createGroup data", data);
+          Swal.fire({
+            title: "Group Created Successfully!",
+            icon: "success",
+            draggable: true,
+          });
+        //   form.reset();
+        }
+      });
   };
 
   return (
     <div className="max-w-xl mx-auto mt-10 bg-[#F3F3E0] shadow-lg rounded-lg p-6">
-      <h2 className="text-3xl font-bold text-center mb-6">Create a Hobby Group</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">
+        Create a Hobby Group
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="label">Group Name</label>
@@ -39,7 +51,11 @@ const CreateGroup = () => {
 
         <div>
           <label className="label">Hobby Category</label>
-          <select name="category" className="select select-bordered w-full" required>
+          <select
+            name="category"
+            className="select select-bordered w-full"
+            required
+          >
             <option value="">Select a category</option>
             <option>Drawing & Painting</option>
             <option>Photography</option>

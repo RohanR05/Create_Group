@@ -27,7 +27,6 @@ const Home = () => {
               during free time. It helps relieve stress, boosts creativity, and
               provides a sense of fulfillment and relaxation.
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
