@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "allGroups",
-        Component: AllGroup,
+        Component: AllGroup
       },
       {
         path: "createGroup",

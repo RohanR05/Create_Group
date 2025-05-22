@@ -26,7 +26,8 @@ const Navbar = () => {
           Home
         </NavLink>
       </p>
-      <p className="hover:opacity-70">
+      {
+        user && <> <p className="hover:opacity-70">
         <NavLink
           className={({ isActive }) => (isActive ? "underline" : "")}
           to="/allGroups"
@@ -49,7 +50,8 @@ const Navbar = () => {
         >
           My Groups
         </NavLink>
-      </p>
+      </p></>
+      }
     </>
   );
 
@@ -76,7 +78,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow font-medium"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow font-medium bg-[#3d365c] text-white"
           >
             {links}
           </ul>
@@ -91,15 +93,13 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="relative">
-            {/* Profile picture triggers dropdown */}
             <img
               className="w-12 h-12 rounded-2xl hover:opacity-100 cursor-pointer peer"
               src={user?.photoURL || "https://via.placeholder.com/150"}
               alt="Profile"
             />
 
-            {/* Dropdown only shows when hovering on the image */}
-            <div className="absolute right-0 top-14 bg-white dark:bg-gray-800 text-black dark:text-white shadow-lg rounded-lg p-2 opacity-0 peer-hover:opacity-100 hover:opacity-100 transition-opacity z-10 min-w-[200px] pointer-events-none hover:pointer-events-auto">
+            <div className="absolute right-0 top-14 bg-white dark:bg-gray-800 text-black dark:text-white shadow-lg rounded-lg p-2 opacity-0 peer-hover:opacity-100 hover:opacity-100 transition-opacity z-10 min-w-[200px] pointer-events-auto">
               <p className="text-md font-semibold mb-2">
                 Name: {user?.displayName || "User"}
               </p>

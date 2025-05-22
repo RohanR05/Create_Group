@@ -15,6 +15,33 @@ const SignUp = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasMinLength = password.length >= 6;
+
+    if (!hasUppercase) {
+      return Swal.fire({
+        icon: "error",
+        title: "Password Error",
+        text: "Password must contain at least one uppercase letter.",
+      });
+    }
+
+    if (!hasLowercase) {
+      return Swal.fire({
+        icon: "error",
+        title: "Password Error",
+        text: "Password must contain at least one lowercase letter.",
+      });
+    }
+
+    if (!hasMinLength) {
+      return Swal.fire({
+        icon: "error",
+        title: "Password Error",
+        text: "Password must be at least 6 characters long.",
+      });
+    }
 
     console.log(email, address, name, photo, password);
 
@@ -65,6 +92,7 @@ const SignUp = () => {
             className="input"
             placeholder="Address"
             name="address"
+            required
           />
 
           <label className="label">Photo</label>
@@ -73,6 +101,7 @@ const SignUp = () => {
             className="input"
             placeholder="Photo URL"
             name="photo"
+            required
           />
 
           <label className="label">Email</label>
@@ -81,6 +110,7 @@ const SignUp = () => {
             className="input"
             placeholder="Email"
             name="email"
+            required
           />
 
           <label className="label">Password</label>
@@ -89,6 +119,7 @@ const SignUp = () => {
             className="input"
             placeholder="Password"
             name="password"
+            required
           />
           <button className="btn btn-neutral mt-4">sign Up</button>
           <h2 className="text-sm font-medium mt-2">
