@@ -29,7 +29,7 @@ const Navbar = () => {
       <p className="hover:opacity-70">
         <NavLink
           className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/allgroups"
+          to="/allGroups"
         >
           All Groups
         </NavLink>
@@ -37,7 +37,7 @@ const Navbar = () => {
       <p className="hover:opacity-70">
         <NavLink
           className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/"
+          to="/createGroup"
         >
           Create Group
         </NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
       <p className="hover:opacity-70">
         <NavLink
           className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/"
+          to="/myGroups"
         >
           My Groups
         </NavLink>
@@ -90,14 +90,16 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="relative group">
+          <div className="relative">
+            {/* Profile picture triggers dropdown */}
             <img
-              className="w-12 h-12 rounded-2xl cursor-pointer"
+              className="w-12 h-12 rounded-2xl hover:opacity-100 cursor-pointer peer"
               src={user?.photoURL || "https://via.placeholder.com/150"}
               alt="Profile"
             />
 
-            <div className="absolute right-0 top-14 bg-white shadow-lg rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 min-w-[200px]">
+            {/* Dropdown only shows when hovering on the image */}
+            <div className="absolute right-0 top-14 bg-white dark:bg-gray-800 text-black dark:text-white shadow-lg rounded-lg p-2 opacity-0 peer-hover:opacity-100 hover:opacity-100 transition-opacity z-10 min-w-[200px] pointer-events-none hover:pointer-events-auto">
               <p className="text-md font-semibold mb-2">
                 Name: {user?.displayName || "User"}
               </p>
