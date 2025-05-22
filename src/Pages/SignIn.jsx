@@ -1,10 +1,12 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthContext";
 import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { signIn } = use(AuthContext);
+  const navigate = useNavigate()
+
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -15,6 +17,14 @@ const SignIn = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sign In Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate('/')
       })
       .catch((error) => {
         console.log(error);

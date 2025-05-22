@@ -4,13 +4,12 @@ import { AuthContext } from "../Auth/AuthContext";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  console.log(user);
+  // console.log(user.diaplayName);
 
   const handleLogOut = () => {
     logOut()
-      .then((result) => {
+      .then(() => {
         alert("You logged Out Successfully");
-        console.log(result);
       })
       .catch((error) => {
         console.log(error);
@@ -91,12 +90,28 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button
-            className="bg-white text-lg font-medium py-1 px-2 rounded-lg border border-[#3d365c]"
-            onClick={handleLogOut}
-          >
-            Log Out
-          </button>
+          <div className="relative group">
+            <img
+              className="w-12 h-12 rounded-2xl cursor-pointer"
+              src={user?.photoURL || "https://via.placeholder.com/150"}
+              alt="Profile"
+            />
+
+            <div className="absolute right-0 top-14 bg-white shadow-lg rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 min-w-[200px]">
+              <p className="text-md font-semibold mb-2">
+                Name: {user?.displayName || "User"}
+              </p>
+              <p className="text-md font-semibold mb-2">
+                Email: {user?.email || "user"}
+              </p>
+              <button
+                onClick={handleLogOut}
+                className="bg-red-500 text-white px-3 py-1 rounded text-md hover:bg-[#f3f3e0] hover:text-red-500 w-full"
+              >
+                Log Out
+              </button>
+            </div>
+          </div>
         ) : (
           <button className="bg-white text-lg font-medium py-1 px-2 rounded-lg border border-[#3d365c]">
             <NavLink to="/signIn">Sign In</NavLink>

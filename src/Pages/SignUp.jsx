@@ -1,10 +1,11 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthContext";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -20,6 +21,16 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result);
+        const user = result.user;
+        console.log(user);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -27,6 +38,7 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
