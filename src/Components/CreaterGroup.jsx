@@ -10,7 +10,6 @@ const CreateGroup = () => {
     const form = e.target;
     const formData = new FormData(form);
     const createGroupeData = Object.fromEntries(formData.entries());
-    console.log(createGroupeData);
 
     fetch(`https://server-site-kappa.vercel.app/create`, {
       method: "POST",

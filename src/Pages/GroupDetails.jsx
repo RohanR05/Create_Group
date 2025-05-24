@@ -6,9 +6,6 @@ const GroupDetails = () => {
   const data = useLoaderData();
   const { id } = useParams();
 
-  console.log("Data:", data);
-  console.log("ID from params:", id);
-
   const group = data.find((item) => item._id === id);
 
   return (

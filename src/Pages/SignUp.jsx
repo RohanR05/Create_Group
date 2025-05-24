@@ -11,7 +11,6 @@ const SignUp = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const address = form.address.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
@@ -43,7 +42,6 @@ const SignUp = () => {
       });
     }
 
-    console.log(email, address, name, photo, password);
 
     createUser(email, password)
       .then((result) => {
