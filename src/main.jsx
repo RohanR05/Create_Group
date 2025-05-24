@@ -13,6 +13,7 @@ import CreaterGroup from "./Components/CreaterGroup.jsx";
 import MyGorups from "./Components/MyGorups.jsx";
 import GroupDetails from "./Pages/GroupDetails.jsx";
 import GroupDetailsCard from "./Pages/GroupDetailsCard.jsx";
+import Loading from "./Pages/Loading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch("http://localhost:999/create"),
         Component: Home,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/signIn",
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
         path: "allGroups",
         loader: () => fetch("http://localhost:999/create"),
         Component: AllGroup,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "createGroup",
@@ -43,18 +46,21 @@ const router = createBrowserRouter([
       },
       {
         path: "myGroups",
-        loader: () => fetch("http://localhost:999/create").then(res => res.json()),
+        loader: () =>
+          fetch("http://localhost:999/create").then((res) => res.json()),
         Component: MyGorups,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "groupDetails/:id",
         loader: () => fetch("http://localhost:999/create"),
         Component: GroupDetails,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
-        path:'groupDetailsCard',
-        Component: GroupDetailsCard
-      }
+        path: "groupDetailsCard",
+        Component: GroupDetailsCard,
+      },
     ],
   },
 ]);
