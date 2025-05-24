@@ -59,7 +59,7 @@ const CreateGroup = () => {
             <option value="">Select a category</option>
             <option>Drawing & Painting</option>
             <option>Photography</option>
-            <option>Video Gaming</option>
+            <option>Sports</option>
             <option>Fishing</option>
             <option>Running</option>
             <option>Cooking</option>

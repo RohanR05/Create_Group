@@ -11,6 +11,8 @@ import AuthProvider from "./Auth/AuthProvider.jsx";
 import AllGroup from "./Components/AllGroup.jsx";
 import CreaterGroup from "./Components/CreaterGroup.jsx";
 import MyGorups from "./Components/MyGorups.jsx";
+import GroupDetails from "./Pages/GroupDetails.jsx";
+import GroupDetailsCard from "./Pages/GroupDetailsCard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch("http://localhost:999/create"),
         Component: Home,
       },
       {
@@ -31,7 +34,8 @@ const router = createBrowserRouter([
       },
       {
         path: "allGroups",
-        Component: AllGroup
+        loader: () => fetch("http://localhost:999/create"),
+        Component: AllGroup,
       },
       {
         path: "createGroup",
@@ -39,8 +43,18 @@ const router = createBrowserRouter([
       },
       {
         path: "myGroups",
+        loader: () => fetch("http://localhost:999/create").then(res => res.json()),
         Component: MyGorups,
       },
+      {
+        path: "groupDetails/:id",
+        loader: () => fetch("http://localhost:999/create"),
+        Component: GroupDetails,
+      },
+      {
+        path:'groupDetailsCard',
+        Component: GroupDetailsCard
+      }
     ],
   },
 ]);

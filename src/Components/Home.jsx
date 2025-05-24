@@ -4,10 +4,15 @@ import img2 from "../assets/istockphoto-1190200652-1024x1024.jpg";
 import img3 from "../assets/magic-cube-1976725_1280.jpg";
 import img4 from "../assets/sewing-3405975_1280.jpg";
 import img5 from "../assets/strategy-1080527_960_720.jpg";
+// import MyLottieAnimation from "../Pages/MyLottieAnimation";
+// import { useLoaderData } from "react-router";
 
 const Home = () => {
+  // const createData = useLoaderData()
+  // console.log(createData)
   return (
     <div>
+      {/* <MyLottieAnimation></MyLottieAnimation> */}
       <div
         className="hero min-h-screen"
         style={{
@@ -79,6 +84,9 @@ const Home = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div>
+
       </div>
     </div>
   );

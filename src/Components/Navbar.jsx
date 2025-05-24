@@ -84,7 +84,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="text-2xl font-bold text-[#3D365C]">
-          Hubby<span className="font-extrabold">Hub</span>
+          Hobby<span className="font-extrabold">Hub</span>
         </a>
       </div>
       <div className="navbar-center hidden md:flex space-x-4 text-lg font-medium">
