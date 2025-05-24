@@ -12,7 +12,7 @@ const CreateGroup = () => {
     const createGroupeData = Object.fromEntries(formData.entries());
     console.log(createGroupeData);
 
-    fetch(`http://localhost:999/create`, {
+    fetch(`https://server-site-kappa.vercel.app/create`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

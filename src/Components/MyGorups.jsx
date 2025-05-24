@@ -27,7 +27,7 @@ const MyGroups = () => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:999/create/${id}`, {
+      fetch(`https://server-site-kappa.vercel.app/create/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
