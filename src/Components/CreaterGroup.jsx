@@ -28,7 +28,7 @@ const CreateGroup = () => {
             icon: "success",
             draggable: true,
           });
-        //   form.reset();
+          form.reset();
         }
       });
   };
@@ -133,6 +133,7 @@ const CreateGroup = () => {
         <div>
           <label className="label">User Email</label>
           <input
+            name="email"
             type="email"
             className="input input-bordered w-full"
             value={user?.email || ""}
