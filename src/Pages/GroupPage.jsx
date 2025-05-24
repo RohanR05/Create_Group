@@ -6,7 +6,7 @@ const GroupPage = ({ data }) => {
 
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl my-10">
+      <div className="card lg:card-side bg-base-100 shadow-xl my-10 dark:bg-[#3d365c] dark:text-[#f3f3e0]">
         <figure className="w-full md:w-8/12">
           <img className="w-fit" src={image} alt="Group Photo" />
         </figure>

@@ -47,7 +47,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="card w-full max-w-sm shrink-0 shadow-2xl bg-[#F3F3E0] mx-auto mt-10 md:mt-28">
+    <div className="card w-full max-w-sm shrink-0 shadow-2xl bg-[#F3F3E0] mx-auto mt-10 md:mt-28 dark:bg-[#3d365c] dark:text-black">
       <div className="card-body">
         {" "}
         <h1 className="text-5xl font-bold">Sign In now!</h1>

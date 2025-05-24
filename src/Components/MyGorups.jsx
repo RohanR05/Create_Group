@@ -1,20 +1,25 @@
-import { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../Auth/AuthContext";
 
 const MyGroups = () => {
   const {user} = use(AuthContext)
   console.log(user)
-  const data = useLoaderData();
+  const allGroups = useLoaderData(); // Get all groups
+  const [myGroups, setMyGroups] = useState([]);
 
-  const userEmail = user?.email;
+  useEffect(() => {
+    if (user?.email && allGroups?.length) {
+      const filtered = allGroups.filter(
+        (group) => group.userEmail === user.email
+      );
+      setMyGroups(filtered);
+    }
+  }, [user, allGroups]);
 
-  const myGroups = data.filter((group) => group.userEmail === userEmail);
-
-  if (!userEmail) return <p>Please log in to see your groups.</p>;
 
   return (
-    <div>
+    <div className="dark:bg-[#3d365c] dark:text-[#f3f3e0]">
       <h2>My Groups</h2>
       {myGroups.length === 0 ? (
         <p>You have no groups created.</p>

@@ -4,7 +4,7 @@ import ThemeToggle from '../Pages/Theme'
 const Footer = () => {
   return (
     <div>
-        <footer className="footer sm:footer-horizontal p-10 bg-[#F3F3E0] text-[#3D365C] dark:bg-gray-700 mt-10 md:mt-20">
+        <footer className="footer sm:footer-horizontal p-10 bg-[#F3F3E0] text-[#3D365C] mt-10 md:mt-20 dark:bg-[#3d365c] dark:text-[#f3f3e0]">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>

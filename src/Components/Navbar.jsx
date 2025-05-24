@@ -56,7 +56,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-sm bg-[#F3F3E0] text-[#3D365C]">
+    <div className="navbar shadow-sm bg-[#F3F3E0] text-[#3D365C]  dark:bg-[#3d365c] dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -83,7 +83,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-2xl font-bold text-[#3D365C]">
+        <a className="text-2xl font-bold text-[#3D365C] dark:bg-[#3d365c] dark:text-[#f3f3e0]">
           Hobby<span className="font-extrabold">Hub</span>
         </a>
       </div>

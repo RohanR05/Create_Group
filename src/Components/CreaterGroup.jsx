@@ -34,7 +34,7 @@ const CreateGroup = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-[#F3F3E0] shadow-lg rounded-lg p-6">
+    <div className="max-w-xl mx-auto mt-10 bg-[#F3F3E0] shadow-lg rounded-lg p-6 dark:bg-[#3d365c] dark:text-black">
       <h2 className="text-3xl font-bold text-center mb-6">
         Create a Hobby Group
       </h2>

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";/* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -8,3 +9,5 @@ body {
 dark{
   background:red;
 }
+
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
