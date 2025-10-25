@@ -5,6 +5,7 @@ import GroupDetailsCard from "./GroupDetailsCard";
 const GroupDetails = () => {
   const data = useLoaderData();
   const { id } = useParams();
+  console.log(data,id)
 
   const group = data.find((item) => item._id === id);
 

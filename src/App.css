@@ -6,8 +6,14 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-dark{
-  background:red;
-}
 
-/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+@plugin "daisyui/theme" {
+  name: "light";
+  --color-primary: #000fff;
+  --color-secondary: #ff00f0;
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #fa8989;
+  --color-secondary: #fa9fff;
+}

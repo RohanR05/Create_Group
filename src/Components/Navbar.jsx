@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Auth/AuthContext";
+import ThemeToggle from "../Pages/Theme";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -26,37 +27,40 @@ const Navbar = () => {
           Home
         </NavLink>
       </p>
-      {
-        user && <> <p className="hover:opacity-70">
-        <NavLink
-          className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/allGroups"
-        >
-          All Groups
-        </NavLink>
-      </p>
-      <p className="hover:opacity-70">
-        <NavLink
-          className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/createGroup"
-        >
-          Create Group
-        </NavLink>
-      </p>
-      <p className="hover:opacity-70">
-        <NavLink
-          className={({ isActive }) => (isActive ? "underline" : "")}
-          to="/myGroups"
-        >
-          My Groups
-        </NavLink>
-      </p></>
-      }
+      {user && (
+        <>
+          {" "}
+          <p className="hover:opacity-70">
+            <NavLink
+              className={({ isActive }) => (isActive ? "underline" : "")}
+              to="/allGroups"
+            >
+              All Groups
+            </NavLink>
+          </p>
+          <p className="hover:opacity-70">
+            <NavLink
+              className={({ isActive }) => (isActive ? "underline" : "")}
+              to="/createGroup"
+            >
+              Create Group
+            </NavLink>
+          </p>
+          <p className="hover:opacity-70">
+            <NavLink
+              className={({ isActive }) => (isActive ? "underline" : "")}
+              to="/myGroups"
+            >
+              My Groups
+            </NavLink>
+          </p>
+        </>
+      )}
     </>
   );
 
   return (
-    <div className="navbar shadow-sm bg-[#F3F3E0] text-[#3D365C]  dark:bg-[#3d365c] dark:text-white">
+    <div className="navbar shadow-sm bg-primary text-secondary">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -115,9 +119,12 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <button className="bg-white text-lg font-medium py-1 px-2 rounded-lg border border-[#3d365c]">
-            <NavLink to="/signIn">Sign In</NavLink>
-          </button>
+          <div>
+            <ThemeToggle></ThemeToggle>
+            <button className="bg-white text-lg font-medium py-1 px-2 rounded-lg border border-[#3d365c]">
+              <NavLink to="/signIn">Sign In</NavLink>
+            </button>
+          </div>
         )}
       </div>
     </div>

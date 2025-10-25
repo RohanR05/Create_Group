@@ -1,28 +1,28 @@
-// src/components/ThemeToggle.js
+// src/components/ThemeToggle.jsx
 import { useEffect, useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
-      className="btn btn-sm bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
+      onClick={toggleTheme}
+      className="btn btn-sm rounded-full bg-base-200 text-primary hover:bg-base-300 transition-all"
+      aria-label="Toggle theme"
     >
-      {isDark ? "Light Mode" : "Dark Mode"}
+      {theme === "light" ? <FaMoon /> : <FaSun />}
     </button>
   );
 };
