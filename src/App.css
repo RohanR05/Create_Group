@@ -9,11 +9,16 @@ body {
 
 @plugin "daisyui/theme" {
   name: "light";
-  --color-primary: #000fff;
-  --color-secondary: #ff00f0;
+  --color-primary: #273F4F;
+  --color-secondary: #FE7743;
+  --color-accent:#ffffff;
+  --color-neutral:#000000
+
 }
 @plugin "daisyui/theme" {
   name: "dark";
   --color-primary: #fa8989;
   --color-secondary: #fa9fff;
+  --color-accent:#000000;
+  --color-neutral:#ffffff
 }
