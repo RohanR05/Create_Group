@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { AuthContext } from "../Auth/AuthContext";
+import { AuthContext } from "../../Auth/AuthContext";
 import Swal from "sweetalert2";
 
 const CreateGroup = () => {

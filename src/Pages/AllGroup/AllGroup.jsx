@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router";
-import GroupPage from "../Pages/groupPage";
+import GroupPage from "./GroupPage";
 
 const AllGroup = () => {
   const groupData = useLoaderData();

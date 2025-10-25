@@ -4,16 +4,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import RootLayout from "./Layout/RootLayout.jsx";
-import Home from "./Components/Home.jsx";
-import SignIn from "./Pages/SignIn.jsx";
-import SignUp from "./Pages/SignUp.jsx";
+import SignIn from "./Components/SignIn.jsx";
+import SignUp from "./Components/SignUp.jsx";
 import AuthProvider from "./Auth/AuthProvider.jsx";
-import AllGroup from "./Components/AllGroup.jsx";
-import CreaterGroup from "./Components/CreaterGroup.jsx";
-import MyGorups from "./Components/MyGorups.jsx";
-import GroupDetails from "./Pages/GroupDetails.jsx";
-import GroupDetailsCard from "./Pages/GroupDetailsCard.jsx";
-import Loading from "./Pages/Loading.jsx";
+import AllGroup from "./Pages/AllGroup/AllGroup.jsx";
+import CreaterGroup from "./Pages/CreateGroup/CreaterGroup.jsx";
+import MyGorups from "./Pages/MyGroup/MyGorups.jsx";
+import GroupDetails from "./Pages/AllGroup/GroupDetails.jsx";
+import GroupDetailsCard from "./Pages/AllGroup/GroupDetailsCard.jsx";
+import Home from "./Pages/Home/Home.jsx";
+import Loading from "./Components/Loading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +47,9 @@ const router = createBrowserRouter([
       {
         path: "myGroups",
         loader: () =>
-          fetch("https://server-site-kappa.vercel.app/create").then((res) => res.json()),
+          fetch("https://server-site-kappa.vercel.app/create").then((res) =>
+            res.json()
+          ),
         Component: MyGorups,
         hydrateFallbackElement: <Loading></Loading>,
       },

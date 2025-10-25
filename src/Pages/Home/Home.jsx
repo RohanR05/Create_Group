@@ -1,9 +1,9 @@
 import React from "react";
-import img1 from "../assets/494906754_1732383237399957_8955080033023967184_n.jpg";
-import img2 from "../assets/istockphoto-1190200652-1024x1024.jpg";
-import img3 from "../assets/magic-cube-1976725_1280.jpg";
-import img4 from "../assets/sewing-3405975_1280.jpg";
-import img5 from "../assets/strategy-1080527_960_720.jpg";
+import img1 from "../../assets/494906754_1732383237399957_8955080033023967184_n.jpg";
+import img2 from "../../assets/istockphoto-1190200652-1024x1024.jpg";
+import img3 from "../../assets/magic-cube-1976725_1280.jpg";
+import img4 from "../../assets/sewing-3405975_1280.jpg";
+import img5 from "../../assets/strategy-1080527_960_720.jpg";
 // import MyLottieAnimation from "../Pages/MyLottieAnimation";
 // import { useLoaderData } from "react-router";
 

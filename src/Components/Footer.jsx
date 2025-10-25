@@ -1,5 +1,4 @@
-import React from 'react'
-import ThemeToggle from '../Pages/Theme'
+
 
 const Footer = () => {
   return (
@@ -56,10 +55,6 @@ const Footer = () => {
         </svg>
       </a>
     </div>
-  </nav>
-  <nav>
-    <div className='w-28'>
-   <ThemeToggle></ThemeToggle></div>
   </nav>
 </footer>
     </div>

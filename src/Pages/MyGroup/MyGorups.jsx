@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
-import { AuthContext } from "../Auth/AuthContext";
+import { AuthContext } from "../../Auth/AuthContext";
 import Swal from "sweetalert2";
 
 const MyGroups = () => {
