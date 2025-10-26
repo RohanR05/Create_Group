@@ -17,7 +17,7 @@ body {
 }
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #9BC09C;
+  --color-primary: #8Bf7a2;
   --color-secondary: #FF7D29;
   --color-accent:#000000;
   --color-neutral:#ffffff

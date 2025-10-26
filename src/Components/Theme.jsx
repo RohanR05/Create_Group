@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light"
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -19,7 +17,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="btn btn-sm rounded-full bg-base-200 text-primary hover:bg-base-300 transition-all"
+      className="btn btn-sm rounded-full border border-secondary text-accent bg-primary hover:bg-secondary transition-all"
       aria-label="Toggle theme"
     >
       {theme === "light" ? <FaMoon /> : <FaSun />}
