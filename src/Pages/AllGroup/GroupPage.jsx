@@ -8,8 +8,40 @@ import {
   FaQuoteRight,
 } from "react-icons/fa";
 
-const GroupPage = ({ data }) => {
-  const { _id, image, groupName, description } = data;
+const GroupPage = ({ data, loading }) => {
+  if (loading) {
+    return (
+      <div className="my-10 animate-pulse">
+        <div
+          className="
+            card bg-primary/10 
+            shadow-xl shadow-primary/40 
+            rounded-2xl overflow-hidden
+          "
+        >
+          {/* Image Skeleton */}
+          <div className="h-64 bg-primary/20 w-full"></div>
+
+          {/* Content Skeleton */}
+          <div className="p-6 space-y-3">
+            <div className="h-6 bg-primary/20 w-3/4 rounded"></div>
+            <div className="h-4 bg-primary/20 w-full rounded"></div>
+            <div className="h-4 bg-primary/20 w-5/6 rounded"></div>
+
+            <div className="flex gap-5 mt-3">
+              <div className="h-4 w-24 bg-primary/20 rounded"></div>
+              <div className="h-4 w-24 bg-primary/20 rounded"></div>
+            </div>
+
+            <div className="h-10 w-32 bg-primary/20 rounded mt-4"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // If not loading → show normal card
+  const { _id, image, groupName, description } = data || {};
 
   return (
     <div className="my-10">
