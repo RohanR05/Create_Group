@@ -50,7 +50,7 @@ const Footer = () => {
                         aria-label="social link"
                       >
                         <FontAwesomeIcon
-                          className="text-accent p-1 rounded-md bg-primary transition-all duration-300 transform hover:scale-110"
+                          className="text-accent p-1 rounded-md bg-secondary transition-all duration-300 transform hover:scale-110"
                           icon={icon}
                         />
                       </a>
