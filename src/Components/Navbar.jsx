@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Auth/AuthContext";
 import ThemeToggle from "../Components/Theme";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -60,7 +61,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-sm bg-primary text-secondary">
+    <div className="navbar shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -87,14 +88,16 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-2xl font-bold text-[#3D365C] dark:bg-[#3d365c] dark:text-[#f3f3e0]">
-          Hobby<span className="font-extrabold">Hub</span>
-        </a>
+       <Logo></Logo>
       </div>
       <div className="navbar-center hidden md:flex space-x-4 text-lg font-medium">
         {links}
       </div>
       <div className="navbar-end">
+        <div>
+          {" "}
+          <ThemeToggle></ThemeToggle>
+        </div>
         {user ? (
           <div className="relative">
             <img
@@ -120,7 +123,6 @@ const Navbar = () => {
           </div>
         ) : (
           <div>
-            <ThemeToggle></ThemeToggle>
             <button className="bg-white text-lg font-medium py-1 px-2 rounded-lg border border-[#3d365c]">
               <NavLink to="/signIn">Sign In</NavLink>
             </button>
