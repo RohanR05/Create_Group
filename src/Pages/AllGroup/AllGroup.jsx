@@ -14,7 +14,7 @@ const AllGroup = () => {
         Here is all <span className="text-secondary">Article</span> posted by
         all
       </h2>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10">
         {groupData.map((data) => (
           <GroupPage data={data} key={data._id}></GroupPage>
         ))}
