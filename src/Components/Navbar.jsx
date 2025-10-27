@@ -85,8 +85,8 @@ const Navbar = () => {
     </>
   );
 
-  return (
-    <div className="navbar shadow-sm backdrop-blur-md shadow-primary/30">
+  return (<div className="navbar fixed top-0 w-full z-50 bg-accent/10 backdrop-blur-md shadow-xl shadow-primary/30 transition-colors duration-300">
+
       {/* Left */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
@@ -118,7 +118,7 @@ const Navbar = () => {
       </div>
 
       {/* Center */}
-      <div className="navbar-center hidden md:flex space-x-4 text-lg font-medium">
+      <div className="navbar-center hidden md:flex space-x-4 text-lg">
         {links}
       </div>
 
