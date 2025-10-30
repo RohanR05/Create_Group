@@ -14,7 +14,7 @@ const GroupDetailsCard = ({ group }) => {
   } = group;
 
   return (
-    <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10">
+    <div className="max-w-xl mx-auto bg-primary/90 shadow-lg rounded-lg overflow-hidden md:my-12">
       <img src={image} alt={groupName} className="w-full h-64 object-cover" />
 
       <div className="p-6">

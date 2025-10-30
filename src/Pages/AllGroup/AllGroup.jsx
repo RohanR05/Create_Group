@@ -31,7 +31,7 @@ const AllGroup = () => {
 
   return (
     <div className="mx-auto mt-6 md:mt-10 px-3">
-      <h2 className="text-xl md:text-3xl font-semibold text-primary text-center mb-8">
+      <h2 className="text-xl md:text-3xl font-semibold text-primary text-center mt-12">
         Here are all the <span className="text-secondary">Groups</span> shared by users
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10">
