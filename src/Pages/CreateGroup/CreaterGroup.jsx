@@ -45,7 +45,7 @@ const CreateGroup = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-xl mx-auto mt-10 bg-accent/10 border border-primary/20 backdrop-blur-md shadow-lg rounded-2xl p-6"
+      className="max-w-xl mx-auto mt-10 bg-primary/10 border border-primary/20 backdrop-blur-md shadow-lg shadow-primary/40 hover:shadow-secondary/40  rounded-2xl p-6"
     >
       <h2 className="text-3xl font-bold text-center text-primary mb-6">
         Create a Hobby Group
