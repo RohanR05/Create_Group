@@ -83,7 +83,7 @@ const MyGroups = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="bg-accent/10 border border-primary/20 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden"
+                className="bg-primary/10 shadow-primary/40 hover:shadow-secondary/40 hover:scale-105 shadow-lg rounded-2xl overflow-hidden"
               >
                 <motion.img
                   src={image}
