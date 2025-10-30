@@ -1,27 +1,35 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthContext";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+import {
+  FaUsers,
+  FaImage,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaInfoCircle,
+  FaListUl,
+  FaUser,
+  FaEnvelope,
+} from "react-icons/fa";
 
 const CreateGroup = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const createGroupeData = Object.fromEntries(formData.entries());
+    const createGroupData = Object.fromEntries(formData.entries());
 
     fetch(`https://server-site-kappa.vercel.app/create`, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(createGroupeData),
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(createGroupData),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("after adding adding createGroup data", data);
           Swal.fire({
             title: "Group Created Successfully!",
             icon: "success",
@@ -33,13 +41,22 @@ const CreateGroup = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-[#F3F3E0] shadow-lg rounded-lg p-6 dark:bg-[#3d365c] dark:text-black">
-      <h2 className="text-3xl font-bold text-center mb-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-xl mx-auto mt-10 bg-accent/10 border border-primary/20 backdrop-blur-md shadow-lg rounded-2xl p-6"
+    >
+      <h2 className="text-3xl font-bold text-center text-primary mb-6">
         Create a Hobby Group
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+
+      <form onSubmit={handleSubmit} className="space-y-4 text-neutral">
+        {/* Group Name */}
         <div>
-          <label className="label">Group Name</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaListUl className="text-secondary" /> Group Name
+          </label>
           <input
             name="groupName"
             placeholder="Enter group name"
@@ -48,8 +65,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* Hobby Category */}
         <div>
-          <label className="label">Hobby Category</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaInfoCircle className="text-secondary" /> Hobby Category
+          </label>
           <select
             name="category"
             className="select select-bordered w-full"
@@ -67,8 +87,11 @@ const CreateGroup = () => {
           </select>
         </div>
 
+        {/* Description */}
         <div>
-          <label className="label">Description</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaInfoCircle className="text-secondary" /> Description
+          </label>
           <textarea
             name="description"
             placeholder="Describe your group or activities"
@@ -77,8 +100,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* Location */}
         <div>
-          <label className="label">Meeting Location</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaMapMarkerAlt className="text-secondary" /> Meeting Location
+          </label>
           <input
             name="location"
             placeholder="Enter meeting location"
@@ -87,8 +113,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* Max Members */}
         <div>
-          <label className="label">Max Members</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaUsers className="text-secondary" /> Max Members
+          </label>
           <input
             name="maxMembers"
             type="number"
@@ -98,8 +127,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* Start Date */}
         <div>
-          <label className="label">Start Date</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaCalendarAlt className="text-secondary" /> Start Date
+          </label>
           <input
             name="startDate"
             type="date"
@@ -108,8 +140,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* Image URL */}
         <div>
-          <label className="label">Image URL</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaImage className="text-secondary" /> Image URL
+          </label>
           <input
             name="image"
             type="text"
@@ -119,8 +154,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* User Name */}
         <div>
-          <label className="label">User Name</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaUser className="text-secondary" /> User Name
+          </label>
           <input
             type="text"
             className="input input-bordered w-full"
@@ -129,8 +167,11 @@ const CreateGroup = () => {
           />
         </div>
 
+        {/* User Email */}
         <div>
-          <label className="label">User Email</label>
+          <label className="label text-primary flex items-center gap-2">
+            <FaEnvelope className="text-secondary" /> User Email
+          </label>
           <input
             name="email"
             type="email"
@@ -140,11 +181,17 @@ const CreateGroup = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary w-full mt-4">
-          Create
-        </button>
+        {/* Submit Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          type="submit"
+          className="btn btn-primary w-full mt-4"
+        >
+          Create Group
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
