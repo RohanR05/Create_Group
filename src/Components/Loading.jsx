@@ -1,16 +1,15 @@
 import React from "react";
+import Lottie from "lottie-react";
+import Loadinganimi from "../assets/Loadingcube.json";
 
 const Loading = () => {
   return (
-    <div className="flex justify-center items-center mt-10 md:mt-20">
-      <span className="loading loading-spinner text-primary"></span>
-      <span className="loading loading-spinner text-secondary"></span>
-      <span className="loading loading-spinner text-accent"></span>
-      <span className="loading loading-spinner text-neutral"></span>
-      <span className="loading loading-spinner text-info"></span>
-      <span className="loading loading-spinner text-success"></span>
-      <span className="loading loading-spinner text-warning"></span>
-      <span className="loading loading-spinner text-error"></span>
+    <div className="flex justify-center items-center min-h-screen bg-transparent">
+      <Lottie
+        animationData={Loadinganimi}
+        loop={true}
+        className="w-full h-full"
+      />
     </div>
   );
 };
